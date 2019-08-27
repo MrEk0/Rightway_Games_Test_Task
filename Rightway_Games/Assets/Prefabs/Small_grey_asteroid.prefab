@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8326757287397192675
+--- !u!1001 &5222244637262509675
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5833535050641155505, guid: 847505cc4ba8c134faec21287ee5aa6e,
         type: 3}
       propertyPath: m_Name
-      value: Small_brown_asteroid
+      value: Small_grey_asteroid
       objectReference: {fileID: 0}
     - target: {fileID: 6654839483846191906, guid: 847505cc4ba8c134faec21287ee5aa6e,
         type: 3}
@@ -71,12 +71,12 @@ PrefabInstance:
         type: 3}
       propertyPath: asteroidType
       value: 
-      objectReference: {fileID: 11400000, guid: ef72247417c343b42baf1f5cd67c4c23,
+      objectReference: {fileID: 11400000, guid: 73c5a366d9319a848b75b41d047abd92,
         type: 2}
     - target: {fileID: 4719905711522996578, guid: 847505cc4ba8c134faec21287ee5aa6e,
         type: 3}
       propertyPath: rotateSpeed
-      value: -25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4719905711522996578, guid: 847505cc4ba8c134faec21287ee5aa6e,
         type: 3}

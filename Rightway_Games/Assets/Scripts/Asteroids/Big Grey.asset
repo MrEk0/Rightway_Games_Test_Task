@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Big Grey
   m_EditorClassIdentifier: 
   strength: 5
-  sprite: {fileID: 21300000, guid: 348174457b95bce489d0ca5088e59990, type: 3}
-  speed: 5
+  sprite: {fileID: 21300000, guid: a871d6cf02560d74b8fcd64088832b22, type: 3}
+  speed: 7
   size: 2
