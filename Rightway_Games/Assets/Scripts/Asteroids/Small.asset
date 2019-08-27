@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Small
   m_EditorClassIdentifier: 
   strength: 1
-  sprite: {fileID: 21300000, guid: d75dda4d2264cad4e88592366f729594, type: 3}
+  sprite: {fileID: 21300000, guid: 81a026c2f4692b24594109c556ea4991, type: 3}
   speed: 10
   size: 1

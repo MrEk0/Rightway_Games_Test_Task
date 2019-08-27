@@ -14,8 +14,13 @@ public class SpaceRock : MonoBehaviour
 
     private void Awake()
     {
+        if (asteroidType != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = asteroidType.GetSprite();
+            transform.localScale = new Vector3(asteroidType.GetSize(), asteroidType.GetSize(), 0);
+            speed = asteroidType.GetSpeed() / speedDivider;
+        }
         rd = GetComponent<Rigidbody2D>();
-        speed = asteroidType.GetSpeed()/speedDivider;
         rotate = new Vector3(0, 0, rotateSpeed);
     }
 
