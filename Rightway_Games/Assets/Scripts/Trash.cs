@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserTrash : MonoBehaviour
+public class Trash : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Laser"))
-        {
+        //if(collision.gameObject.CompareTag("Laser"))
+        //{
             Destroy(collision.gameObject);
-        }
+        //}
     }
 }
