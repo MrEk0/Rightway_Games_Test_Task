@@ -10,6 +10,7 @@ public class SpaceRock : MonoBehaviour
 
     Rigidbody2D rd;
     float speed;
+    float health;
     Vector3 rotate;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class SpaceRock : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = asteroidType.GetSprite();
             transform.localScale = new Vector3(asteroidType.GetSize(), asteroidType.GetSize(), 0);
             speed = asteroidType.GetSpeed() / speedDivider;
+            health = asteroidType.GetStrength();
         }
         rd = GetComponent<Rigidbody2D>();
         rotate = new Vector3(0, 0, rotateSpeed);
@@ -39,8 +41,21 @@ public class SpaceRock : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Damage");
+            //give damage
             Destroy(gameObject);
+        }
+        if(collision.gameObject.CompareTag("Laser"))
+        {
+            Destroy(collision.gameObject);
+            if (health>0)
+            {
+                health--;
+            }
+            else
+            {
+                //give points
+                Destroy(gameObject);
+            }
         }
     }
 }

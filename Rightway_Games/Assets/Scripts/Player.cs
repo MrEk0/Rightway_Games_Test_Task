@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float speed;
     [SerializeField] float offset = 0.5f;
+    [SerializeField] float strength;
 
     float minX;
     float maxX;

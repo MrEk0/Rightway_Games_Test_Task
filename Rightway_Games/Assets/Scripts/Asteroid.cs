@@ -9,6 +9,7 @@ public class Asteroid : ScriptableObject
     [SerializeField] Sprite sprite;
     [SerializeField] float speed;
     [SerializeField] float size;
+    [SerializeField] float points;
 
     public float GetStrength()
     {
@@ -25,5 +26,9 @@ public class Asteroid : ScriptableObject
     public float GetSize()
     {
         return size;
+    }
+    public float GetPoints()
+    {
+        return points;
     }
 }
