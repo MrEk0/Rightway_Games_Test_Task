@@ -42,4 +42,15 @@ public class Player : MonoBehaviour
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
     }
+
+    private void ModifierFire()
+    {
+        //increase fire speed
+    }
+
+    public void ReceivePowerUp(float strengthAmount)
+    {
+        strength += strengthAmount;
+        Debug.Log(strength);
+    }
 }
