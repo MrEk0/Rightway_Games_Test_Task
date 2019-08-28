@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Rock
+    uniqueID: 1172940303
+    locked: 0
+  - name: Enemy
+    uniqueID: 1262977207
+    locked: 0

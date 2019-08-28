@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small_brown_asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 6410680771459497284, guid: 847505cc4ba8c134faec21287ee5aa6e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6654839483846191906, guid: 847505cc4ba8c134faec21287ee5aa6e,
         type: 3}
       propertyPath: m_LocalPosition.x

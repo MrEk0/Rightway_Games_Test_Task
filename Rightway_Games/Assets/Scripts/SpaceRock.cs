@@ -11,7 +11,9 @@ public class SpaceRock : MonoBehaviour
     Rigidbody2D rd;
     float speed;
     float health;
+    float points;
     Vector3 rotate;
+    Score score;
 
     private void Awake()
     {
@@ -21,9 +23,12 @@ public class SpaceRock : MonoBehaviour
             transform.localScale = new Vector3(asteroidType.GetSize(), asteroidType.GetSize(), 0);
             speed = asteroidType.GetSpeed() / speedDivider;
             health = asteroidType.GetStrength();
+            points = asteroidType.GetPoints();
         }
         rd = GetComponent<Rigidbody2D>();
         rotate = new Vector3(0, 0, rotateSpeed);
+
+        score = FindObjectOfType<Score>();
     }
 
     // Update is called once per frame
@@ -54,6 +59,7 @@ public class SpaceRock : MonoBehaviour
             else
             {
                 //give points
+                score.IncreaseScore(points);
                 Destroy(gameObject);
             }
         }

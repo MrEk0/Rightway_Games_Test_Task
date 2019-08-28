@@ -16,3 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a871d6cf02560d74b8fcd64088832b22, type: 3}
   speed: 7
   size: 2
+  points: 10
