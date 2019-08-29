@@ -7,6 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7590185766295762073, guid: 02187e280c2fa55468d85a2a6fac14a2,
+        type: 3}
+      propertyPath: enemyType
+      value: 
+      objectReference: {fileID: 11400000, guid: 68870cbda36e4554ab810c561d62dc52,
+        type: 2}
+    - target: {fileID: 7590185766295762073, guid: 02187e280c2fa55468d85a2a6fac14a2,
+        type: 3}
+      propertyPath: timeBetweenShots
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3132900370731615286, guid: 02187e280c2fa55468d85a2a6fac14a2,
         type: 3}
       propertyPath: m_Name

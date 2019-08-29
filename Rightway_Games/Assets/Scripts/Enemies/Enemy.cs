@@ -7,5 +7,20 @@ public class Enemy :ScriptableObject
 {
     [SerializeField] float strength;
     [SerializeField] Sprite sprite;
+    [SerializeField] GameObject laserPrefab;
     
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public float GetStrength()
+    {
+        return strength;
+    }
+
+    public GameObject GetLaser()
+    {
+        return laserPrefab;
+    }
 }

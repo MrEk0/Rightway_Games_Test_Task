@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7e0de7ecfbcce4ea7c8f2d1fc3714e, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  strength: 0
-  sprite: {fileID: 0}
+  strength: 8
+  sprite: {fileID: 21300000, guid: 99f3d4b15c1ba964d817d5ea3399a4d6, type: 3}

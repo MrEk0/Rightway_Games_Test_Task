@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    [SerializeField] float damage = 10;
+    //[SerializeField] float damage = 10;
     [SerializeField] float speed = 10;
 
-    Rigidbody2D rigidbody;
+    Rigidbody2D rd;
+    Vector2 speedVector;
+
+    public float Damage {private get;  set; }
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rd = GetComponent<Rigidbody2D>();
+        speedVector = new Vector2(0, speed);
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(0, speed);
+        rd.velocity = speedVector;
     }
 }
