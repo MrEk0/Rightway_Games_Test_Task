@@ -10,9 +10,11 @@ public class EnemyShip : MonoBehaviour, IDamage
     public float Health { get; set; }
 
     float damage;
+    float points;
     float timeSinceShot=0f;
     GameObject laserPrefab;
     Transform laserStartPosition;
+    Score score;
 
     private void Awake()
     {
@@ -22,8 +24,10 @@ public class EnemyShip : MonoBehaviour, IDamage
             laserPrefab = enemyType.GetLaser();
             Health = enemyType.GetStrength();
             damage = Health;
+            points = enemyType.GetPoints();
         }
         laserStartPosition = transform;
+        score = FindObjectOfType<Score>();
 
     }
 
@@ -50,11 +54,17 @@ public class EnemyShip : MonoBehaviour, IDamage
         {
             float damage = collision.gameObject.GetComponent<Laser>().Damage;
             TakeDamage(damage);
+            Debug.Log(Health);
         }
     }
 
     public void TakeDamage(float damage)
     {
         Health -= damage;
+        if(Health<=0)
+        {
+            Destroy(gameObject);
+            score.IncreaseScore(points);
+        }
     }
 }

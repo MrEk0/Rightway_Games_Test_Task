@@ -117,6 +117,15 @@ public class Player : MonoBehaviour, IDamage
         return strength;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("EnemyLaser"))
+        {
+            float laserDamage = collision.gameObject.GetComponent<Laser>().Damage;
+            TakeDamage(laserDamage);
+        }
+    }
+
     public void TakeDamage(float damage)
     {
         strength -= damage;
