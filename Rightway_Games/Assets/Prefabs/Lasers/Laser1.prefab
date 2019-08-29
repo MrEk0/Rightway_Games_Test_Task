@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7553441772764555894, guid: ee17d73204995894483a98680626e499,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7553441772764555894, guid: ee17d73204995894483a98680626e499,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 3601005152459142305, guid: ee17d73204995894483a98680626e499,
         type: 3}
       propertyPath: m_Name
@@ -15,12 +25,12 @@ PrefabInstance:
     - target: {fileID: 4493006434931581924, guid: ee17d73204995894483a98680626e499,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.9806647
       objectReference: {fileID: 0}
     - target: {fileID: 4493006434931581924, guid: ee17d73204995894483a98680626e499,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.931721
       objectReference: {fileID: 0}
     - target: {fileID: 4493006434931581924, guid: ee17d73204995894483a98680626e499,
         type: 3}
@@ -87,21 +97,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 729442088800174584, guid: ee17d73204995894483a98680626e499,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 729442088800174584, guid: ee17d73204995894483a98680626e499,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 729442088800174584, guid: ee17d73204995894483a98680626e499,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee17d73204995894483a98680626e499, type: 3}

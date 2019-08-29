@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 3
   sprite: {fileID: 21300000, guid: 5a9f80351e327bd4c89065fee158acef, type: 3}
-  laserPrefab: {fileID: 0}
+  laserPrefab: {fileID: 5306589928215838564, guid: 590620c30e04e9c46af207946c4ae229,
+    type: 3}
   pointsForDestroying: 15
+  path: {fileID: 7213855718902618040, guid: aea1a2ca85d910647b18fd1a079a8a0a, type: 3}

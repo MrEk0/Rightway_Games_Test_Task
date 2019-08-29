@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New enemy ship", menuName ="Enemy ship")]
-public class Enemy :ScriptableObject
+[CreateAssetMenu(fileName = "New enemy ship", menuName = "Enemy ship")]
+public class Enemy : ScriptableObject
 {
     [SerializeField] float strength;
     [SerializeField] Sprite sprite;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float pointsForDestroying;
     [SerializeField] GameObject path;
-    
+
     public Sprite GetSprite()
     {
         return sprite;
@@ -31,8 +31,20 @@ public class Enemy :ScriptableObject
         return pointsForDestroying;
     }
 
-    public GameObject GetPath()
+    //public GameObject GetPath()
+    //{
+    //    return path;
+    //}
+
+    public List<Transform> GetWayPoints()
     {
-        return path;
+        List<Transform> wayPoints = new List<Transform>();
+
+        foreach (Transform trans in path.transform)
+        {
+            wayPoints.Add(trans);
+        }
+
+        return wayPoints;
     }
 }

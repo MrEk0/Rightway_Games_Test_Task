@@ -6,6 +6,7 @@ public class EnemyShip : MonoBehaviour, IDamage
 {
     [SerializeField] Enemy enemyType;
     [SerializeField] float timeBetweenShots;
+    [SerializeField] float speed;
 
     public float Health { get; set; }
 
@@ -14,7 +15,9 @@ public class EnemyShip : MonoBehaviour, IDamage
     float timeSinceShot=0f;
     GameObject laserPrefab;
     Transform laserStartPosition;
-    GameObject path;
+    //GameObject path;
+    List<Transform> wayPoints = new List<Transform>();
+    int wayPointIndex = 0;
     Score score;
 
     private void Awake()
@@ -26,7 +29,8 @@ public class EnemyShip : MonoBehaviour, IDamage
             Health = enemyType.GetStrength();
             damage = Health;
             points = enemyType.GetPoints();
-            path = enemyType.GetPath();
+            //path = enemyType.GetPath();
+            wayPoints = enemyType.GetWayPoints();
         }
         laserStartPosition = transform;
         score = FindObjectOfType<Score>();
@@ -37,6 +41,7 @@ public class EnemyShip : MonoBehaviour, IDamage
     void Update()
     {
         Fire();
+        GoThroughPath();
     }
 
     private void Fire()
@@ -67,6 +72,24 @@ public class EnemyShip : MonoBehaviour, IDamage
         {
             Destroy(gameObject);
             score.IncreaseScore(points);
+        }
+    }
+
+    private void GoThroughPath()
+    {
+        if(wayPointIndex<=wayPoints.Count-1)
+        {
+            var targetPosition = wayPoints[wayPointIndex].position;
+
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            if(transform.position==targetPosition)
+            {
+                wayPointIndex++;
+            }
+        }
+        else
+        {
+            wayPointIndex = 0;
         }
     }
 }
