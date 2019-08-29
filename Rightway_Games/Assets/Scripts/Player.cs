@@ -38,6 +38,8 @@ public class Player : MonoBehaviour, IDamage
         Movement();
         SpeedFireBehaviour();
         FireBehaviour();
+
+        //Debug.Log(maxX);
     }
 
     private void FireBehaviour()

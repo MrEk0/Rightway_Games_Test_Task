@@ -17,3 +17,4 @@ MonoBehaviour:
   speed: 7
   size: 2
   points: 10
+  rotateSpeed: 8

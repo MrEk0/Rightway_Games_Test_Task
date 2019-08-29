@@ -6,12 +6,15 @@ public class Spawn : MonoBehaviour
 {
     [SerializeField] List<GameObject> prefabsToSpawn;
     [SerializeField] float timeBetweenSpawns;
+    [SerializeField] float offset = 0.5f;
 
     float timeSinceLastSpawn = 0f;
-    // Start is called before the first frame update
-    void Start()
+    float minX;
+    float maxX;
+
+    private void Start()
     {
-        
+        CheckScreenBorders();
     }
 
     // Update is called once per frame
@@ -25,10 +28,23 @@ public class Spawn : MonoBehaviour
         timeSinceLastSpawn += Time.deltaTime;
     }
 
+    private void CheckScreenBorders()
+    {
+        Camera cam = Camera.main;
+        minX = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + offset;
+        maxX = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - offset;
+    }
+
     private void SpawnObjects()
     {
         int randomObjectIndex = Random.Range(0, prefabsToSpawn.Count);
+        float randomPositionX = Random.Range(minX, maxX);
 
-        Instantiate(prefabsToSpawn[randomObjectIndex], transform.position, transform.rotation);
+        Debug.Log(randomPositionX);
+        Debug.Log(maxX);
+
+        Vector3 startPosition = new Vector3(randomPositionX, transform.position.y, transform.position.z);
+
+        Instantiate(prefabsToSpawn[randomObjectIndex], startPosition, transform.rotation);
     }
 }
