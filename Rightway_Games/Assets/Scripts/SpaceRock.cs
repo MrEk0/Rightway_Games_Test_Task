@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceRock : MonoBehaviour
+public class SpaceRock : MonoBehaviour, IDamage
 {
     [SerializeField] Asteroid asteroidType;
     [SerializeField] float rotateSpeed;
@@ -58,16 +58,22 @@ public class SpaceRock : MonoBehaviour
         if(collision.gameObject.CompareTag("Laser"))
         {
             Destroy(collision.gameObject);
-            if (health>0)
-            {
-                health--;
-            }
-            else
-            {
-                //give points
-                score.IncreaseScore(points);
-                Destroy(gameObject);
-            }
+            float laserDamage = collision.gameObject.GetComponent<Laser>().Damage;
+            TakeDamage(laserDamage);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (health > 0)
+        {
+            health--;
+        }
+        else
+        {
+            //give points
+            score.IncreaseScore(points);
+            Destroy(gameObject);
         }
     }
 }

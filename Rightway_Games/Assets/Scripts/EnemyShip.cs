@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShip : MonoBehaviour
+public class EnemyShip : MonoBehaviour, IDamage
 {
     [SerializeField] Enemy enemyType;
     [SerializeField] float timeBetweenShots;
@@ -53,9 +53,8 @@ public class EnemyShip : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         Health -= damage;
     }
-
 }
