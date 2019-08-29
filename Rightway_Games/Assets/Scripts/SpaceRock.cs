@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpaceRock : MonoBehaviour, IDamage
 {
     [SerializeField] Asteroid asteroidType;
-    [SerializeField] float rotateSpeed;
     [SerializeField] float speedDivider;
 
     Rigidbody2D rd;
@@ -13,6 +12,7 @@ public class SpaceRock : MonoBehaviour, IDamage
     float health;
     float damage;
     float points;
+    float rotateSpeed;
     Vector3 rotate;
     Vector2 speedVector;
     Score score;
@@ -27,6 +27,7 @@ public class SpaceRock : MonoBehaviour, IDamage
             health = asteroidType.GetStrength();
             damage = health;
             points = asteroidType.GetPoints();
+            rotateSpeed = asteroidType.GetRotateSpeed()/speedDivider;
         }
         rd = GetComponent<Rigidbody2D>();
         rotate = new Vector3(0, 0, rotateSpeed);
