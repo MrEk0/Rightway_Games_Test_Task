@@ -10,6 +10,7 @@ public class Enemy : ScriptableObject
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float pointsForDestroying;
     [SerializeField] GameObject path;
+    [SerializeField] List<GameObject> laserStartPositions;
 
     public Sprite GetSprite()
     {
@@ -31,20 +32,20 @@ public class Enemy : ScriptableObject
         return pointsForDestroying;
     }
 
-    //public GameObject GetPath()
-    //{
-    //    return path;
-    //}
-
     public List<Transform> GetWayPoints()
     {
         List<Transform> wayPoints = new List<Transform>();
 
-        foreach (Transform trans in path.transform)
+        foreach (Transform child in path.transform)
         {
-            wayPoints.Add(trans);
+            wayPoints.Add(child);
         }
 
         return wayPoints;
+    }
+
+    public List<GameObject> GetLaserPositions()
+    {
+        return laserStartPositions;
     }
 }

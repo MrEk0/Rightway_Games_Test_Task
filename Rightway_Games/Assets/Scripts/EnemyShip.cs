@@ -15,6 +15,8 @@ public class EnemyShip : MonoBehaviour, IDamage
     float timeSinceShot=0f;
     GameObject laserPrefab;
     Transform laserStartPosition;
+    List<Transform> laserPositions = new List<Transform>();
+    int laserCount = 0;
     //GameObject path;
     List<Transform> wayPoints = new List<Transform>();
     int wayPointIndex = 0;
@@ -32,9 +34,19 @@ public class EnemyShip : MonoBehaviour, IDamage
             //path = enemyType.GetPath();
             wayPoints = enemyType.GetWayPoints();
         }
-        laserStartPosition = transform;
         score = FindObjectOfType<Score>();
+        FindLasers();
 
+    }
+
+    private void FindLasers()
+    {
+        foreach(Transform child in transform)
+        {
+            laserPositions.Add(child);
+        }
+
+        laserCount = laserPositions.Count;
     }
 
     // Update is called once per frame
@@ -48,8 +60,11 @@ public class EnemyShip : MonoBehaviour, IDamage
     {
         if (timeSinceShot >= timeBetweenShots)
         {
-            GameObject laser=Instantiate(laserPrefab, laserStartPosition.position, transform.rotation);
-            laser.GetComponent<Laser>().Damage = damage;
+            for (int i = 0; i < laserCount; i++)
+            {
+                GameObject laser = Instantiate(laserPrefab, laserPositions[i].position, transform.rotation);
+                laser.GetComponent<Laser>().Damage = damage;
+            }
             timeSinceShot = 0f;
         }
         timeSinceShot += Time.deltaTime;
