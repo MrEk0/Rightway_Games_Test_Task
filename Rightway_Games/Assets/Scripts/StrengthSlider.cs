@@ -14,7 +14,12 @@ public class StrengthSlider : MonoBehaviour
         slider = GetComponent<Slider>();
         slider.maxValue = player.GetStrength();
         slider.value = slider.maxValue;
+
+        player.onTakenDamage += UpdateSlider;
     }
 
-
+    private void UpdateSlider(float damage)
+    {
+        slider.value -= damage;
+    }
 }

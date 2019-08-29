@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject projectile;
     [SerializeField] float speed;
     [SerializeField] float offset = 0.5f;
-    [SerializeField] float strength;
+    [SerializeField] float strength;//health
     [SerializeField] float timeBetweenFire=.1f;
 
     float minX;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     Coroutine fireCoroutine;//to stop fire
     bool isSpeedFire=false;
     float maxStrength;
+
+    public event Action<float> onTakenDamage;//fdfsfsd
 
     private void Awake()
     {
@@ -110,5 +113,11 @@ public class Player : MonoBehaviour
     public float GetStrength()
     {
         return strength;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        strength -= damage;
+        onTakenDamage(damage);
     }
 }
