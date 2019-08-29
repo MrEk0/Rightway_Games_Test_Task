@@ -14,6 +14,7 @@ public class EnemyShip : MonoBehaviour, IDamage
     float timeSinceShot=0f;
     GameObject laserPrefab;
     Transform laserStartPosition;
+    GameObject path;
     Score score;
 
     private void Awake()
@@ -25,6 +26,7 @@ public class EnemyShip : MonoBehaviour, IDamage
             Health = enemyType.GetStrength();
             damage = Health;
             points = enemyType.GetPoints();
+            path = enemyType.GetPath();
         }
         laserStartPosition = transform;
         score = FindObjectOfType<Score>();

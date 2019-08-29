@@ -9,6 +9,7 @@ public class Enemy :ScriptableObject
     [SerializeField] Sprite sprite;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float pointsForDestroying;
+    [SerializeField] GameObject path;
     
     public Sprite GetSprite()
     {
@@ -28,5 +29,10 @@ public class Enemy :ScriptableObject
     public float GetPoints()
     {
         return pointsForDestroying;
+    }
+
+    public GameObject GetPath()
+    {
+        return path;
     }
 }
