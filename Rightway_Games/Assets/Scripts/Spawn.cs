@@ -40,9 +40,6 @@ public class Spawn : MonoBehaviour
         int randomObjectIndex = Random.Range(0, prefabsToSpawn.Count);
         float randomPositionX = Random.Range(minX, maxX);
 
-        Debug.Log(randomPositionX);
-        Debug.Log(maxX);
-
         Vector3 startPosition = new Vector3(randomPositionX, transform.position.y, transform.position.z);
 
         Instantiate(prefabsToSpawn[randomObjectIndex], startPosition, transform.rotation);
