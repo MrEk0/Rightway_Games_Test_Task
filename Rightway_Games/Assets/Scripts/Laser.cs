@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    //[SerializeField] float damage = 10;
     [SerializeField] float speed = 10;
 
     Rigidbody2D rd;
     Vector2 speedVector;
 
-    public float Damage {private get;  set; }
+    public float Damage { get;  set; }
 
     private void Awake()
     {
@@ -23,4 +22,17 @@ public class Laser : MonoBehaviour
     {
         rd.velocity = speedVector;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("EnemyLaser"))
+    //    {
+    //        collision.gameObject.GetComponent<Player>().TakeDamage(Damage);
+    //    }
+    //    else if(collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Laser"))
+    //    {
+    //        collision.gameObject.GetComponent<EnemyShip>().Health -= Damage;
+    //        Debug.Log("Damage");
+    //    }
+    //}
 }

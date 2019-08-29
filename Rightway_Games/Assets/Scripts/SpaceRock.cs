@@ -14,6 +14,7 @@ public class SpaceRock : MonoBehaviour
     float damage;
     float points;
     Vector3 rotate;
+    Vector2 speedVector;
     Score score;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class SpaceRock : MonoBehaviour
         }
         rd = GetComponent<Rigidbody2D>();
         rotate = new Vector3(0, 0, rotateSpeed);
+        speedVector = new Vector2(0, -speed);
 
         score = FindObjectOfType<Score>();
     }
@@ -41,7 +43,7 @@ public class SpaceRock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rd.velocity = new Vector2(0, -speed);
+        rd.velocity = speedVector;
         transform.Rotate(rotate /** Time.deltaTime*/);
     }
 

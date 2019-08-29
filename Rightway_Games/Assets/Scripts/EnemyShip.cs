@@ -7,9 +7,11 @@ public class EnemyShip : MonoBehaviour
     [SerializeField] Enemy enemyType;
     [SerializeField] float timeBetweenShots;
 
-    float health;
+    public float Health { get; set; }
+
+    float damage;
     float timeSinceShot=0f;
-    GameObject laser;
+    GameObject laserPrefab;
     Transform laserStartPosition;
 
     private void Awake()
@@ -17,8 +19,9 @@ public class EnemyShip : MonoBehaviour
         if(enemyType!=null)
         {
             GetComponent<SpriteRenderer>().sprite = enemyType.GetSprite();
-            laser = enemyType.GetLaser();
-            health = enemyType.GetStrength();
+            laserPrefab = enemyType.GetLaser();
+            Health = enemyType.GetStrength();
+            damage = Health;
         }
         laserStartPosition = transform;
 
@@ -28,25 +31,31 @@ public class EnemyShip : MonoBehaviour
     void Update()
     {
         Fire();
-        //StartCoroutine(Shooting());
     }
 
     private void Fire()
     {
         if (timeSinceShot >= timeBetweenShots)
         {
-            Instantiate(laser, laserStartPosition.position, transform.rotation);
+            GameObject laser=Instantiate(laserPrefab, laserStartPosition.position, transform.rotation);
+            laser.GetComponent<Laser>().Damage = damage;
             timeSinceShot = 0f;
         }
         timeSinceShot += Time.deltaTime;
     }
 
-    IEnumerator Shooting()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        while (true)
+        if (collision.gameObject.CompareTag("Laser"))
         {
-            Instantiate(laser, laserStartPosition.position, transform.rotation);
-            yield return new WaitForSeconds(timeBetweenShots);
+            float damage = collision.gameObject.GetComponent<Laser>().Damage;
+            TakeDamage(damage);
         }
     }
+
+    private void TakeDamage(float damage)
+    {
+        Health -= damage;
+    }
+
 }

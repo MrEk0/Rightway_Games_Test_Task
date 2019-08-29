@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float offset = 0.5f;
     [SerializeField] float strength;//health
     [SerializeField] float timeBetweenFire=.1f;
+    [SerializeField] float damage = 1f;
 
     float minX;
     float maxX;
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
     private void Fire()
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+        bullet.GetComponent<Laser>().Damage = damage;
     }
 
     public void ModifierFire(float timeFrame)
@@ -107,7 +109,7 @@ public class Player : MonoBehaviour
         if (strength >= maxStrength)
             strength = maxStrength;
 
-        Debug.Log(strength);
+        //Debug.Log(strength);
     }
 
     public float GetStrength()
