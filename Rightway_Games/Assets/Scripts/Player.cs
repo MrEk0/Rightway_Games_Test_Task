@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     float fireSpeedTime;
     Coroutine fireCoroutine;//to stop fire
     bool isSpeedFire=false;
+    float maxStrength;
+
+    private void Awake()
+    {
+        maxStrength = strength;
+    }
 
     private void Start()
     {
@@ -65,13 +71,6 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(posX, transform.position.y);
     }
 
-    private void CheckScreenBorders()
-    {
-        Camera cam = Camera.main;
-        minX = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x+offset;
-        maxX = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-offset;
-    }
-
     private void Fire()
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
@@ -92,9 +91,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void CheckScreenBorders()
+    {
+        Camera cam = Camera.main;
+        minX = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + offset;
+        maxX = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - offset;
+    }
+
     public void ReceivePowerUp(float strengthAmount)
     {
         strength += strengthAmount;
+        if (strength >= maxStrength)
+            strength = maxStrength;
+
         Debug.Log(strength);
+    }
+
+    public float GetStrength()
+    {
+        return strength;
     }
 }
