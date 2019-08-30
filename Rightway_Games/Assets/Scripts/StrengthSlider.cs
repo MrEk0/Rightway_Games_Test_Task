@@ -20,6 +20,6 @@ public class StrengthSlider : MonoBehaviour
 
     private void UpdateSlider(float damage)
     {
-        slider.value -= damage;
+        slider.value += damage;
     }
 }

@@ -43,3 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa0a728215a52438a3ba535d63edc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commetsToSpawn:
+  - {fileID: 5338587302821471507, guid: 53182332dc5cf7e42ac2470036508f90, type: 3}
+  - {fileID: 4571783898833156723, guid: 983f002a48f32a44fad84ee452460e35, type: 3}
+  - {fileID: 2556483944744080978, guid: 4a84b88c65151f64f9173aefb3330822, type: 3}
+  - {fileID: 1769284550321099738, guid: ea60b1735a134fd48ab8a6bda7595e6b, type: 3}
+  enemiesToSpawn:
+  - {fileID: 8044361869557682424, guid: ae0b09cb75f4af54482b2a840b7139e3, type: 3}
+  - {fileID: 8301744278580646211, guid: 85b2d385dff804c4da7f778fd8ecfd9a, type: 3}
+  - {fileID: 7936714023417930010, guid: 8855afcab46597f4eb41d3482fe0155f, type: 3}
+  - {fileID: 3610975406098285881, guid: bb51cee57afcc5349add70bd930c485c, type: 3}
+  powerUpToSpawn:
+  - {fileID: 7434498842208736393, guid: 79a46ad87b5e42940a6bfad5c468600f, type: 3}
+  - {fileID: 5158905801400956082, guid: 4e299826ff2c1c5448b27a157da3862e, type: 3}
+  timeBetweenSpawns: 2
+  offset: 0.5

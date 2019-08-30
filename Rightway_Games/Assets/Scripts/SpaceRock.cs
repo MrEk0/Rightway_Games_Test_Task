@@ -36,16 +36,10 @@ public class SpaceRock : MonoBehaviour, IDamage
         score = FindObjectOfType<Score>();
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    transform.Rotate(rotate*Time.deltaTime);
-    //}
-
     private void FixedUpdate()
     {
         rd.velocity = speedVector;
-        transform.Rotate(rotate /** Time.deltaTime*/);
+        transform.Rotate(rotate);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

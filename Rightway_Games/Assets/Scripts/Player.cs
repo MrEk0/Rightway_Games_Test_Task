@@ -20,7 +20,7 @@ public class Player : MonoBehaviour, IDamage
     bool isSpeedFire=false;
     float maxStrength;
 
-    public event Action<float> onTakenDamage;//fdfsfsd
+    public event Action<float> onTakenDamage;
 
     private void Awake()
     {
@@ -38,8 +38,6 @@ public class Player : MonoBehaviour, IDamage
         Movement();
         SpeedFireBehaviour();
         FireBehaviour();
-
-        //Debug.Log(maxX);
     }
 
     private void FireBehaviour()
@@ -111,7 +109,8 @@ public class Player : MonoBehaviour, IDamage
         if (strength >= maxStrength)
             strength = maxStrength;
 
-        //Debug.Log(strength);
+        onTakenDamage(strength);
+
     }
 
     public float GetStrength()
@@ -131,7 +130,7 @@ public class Player : MonoBehaviour, IDamage
     public void TakeDamage(float damage)
     {
         strength -= damage;
-        onTakenDamage(damage);
+        onTakenDamage(-damage);
         if(strength<=0)
         {
             Death();

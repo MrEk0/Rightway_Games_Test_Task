@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New enemy ship", menuName = "Enemy ship")]
 public class Enemy : ScriptableObject
 {
+    [SerializeField] float speed;
+    [SerializeField] float timeBetweenShots;
     [SerializeField] float strength;
     [SerializeField] Sprite sprite;
     [SerializeField] GameObject laserPrefab;
@@ -15,6 +17,16 @@ public class Enemy : ScriptableObject
     public Sprite GetSprite()
     {
         return sprite;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public float GetTimeShots()
+    {
+        return timeBetweenShots;
     }
 
     public float GetStrength()

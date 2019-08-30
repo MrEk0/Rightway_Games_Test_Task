@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyShip : MonoBehaviour, IDamage
 {
     [SerializeField] Enemy enemyType;
-    [SerializeField] float timeBetweenShots;
-    [SerializeField] float speed;
 
     public float Health { get; set; }
+    public event Action onDead;
 
+    float timeBetweenShots;
+    float speed;
     float damage;
     float points;
     float timeSinceShot=0f;
@@ -17,7 +19,6 @@ public class EnemyShip : MonoBehaviour, IDamage
     Transform laserStartPosition;
     List<Transform> laserPositions = new List<Transform>();
     int laserCount = 0;
-    //GameObject path;
     List<Transform> wayPoints = new List<Transform>();
     int wayPointIndex = 0;
     Score score;
@@ -31,8 +32,9 @@ public class EnemyShip : MonoBehaviour, IDamage
             Health = enemyType.GetStrength();
             damage = Health;
             points = enemyType.GetPoints();
-            //path = enemyType.GetPath();
             wayPoints = enemyType.GetWayPoints();
+            speed = enemyType.GetSpeed();
+            timeBetweenShots = enemyType.GetTimeShots();
         }
         score = FindObjectOfType<Score>();
         FindLasers();
@@ -76,7 +78,6 @@ public class EnemyShip : MonoBehaviour, IDamage
         {
             float damage = collision.gameObject.GetComponent<Laser>().Damage;
             TakeDamage(damage);
-            Debug.Log(Health);
         }
     }
 
@@ -87,6 +88,7 @@ public class EnemyShip : MonoBehaviour, IDamage
         {
             Destroy(gameObject);
             score.IncreaseScore(points);
+            onDead();
         }
     }
 

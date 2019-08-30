@@ -22,17 +22,4 @@ public class Laser : MonoBehaviour
     {
         rd.velocity = speedVector;
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("EnemyLaser"))
-    //    {
-    //        collision.gameObject.GetComponent<Player>().TakeDamage(Damage);
-    //    }
-    //    else if(collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Laser"))
-    //    {
-    //        collision.gameObject.GetComponent<EnemyShip>().Health -= Damage;
-    //        Debug.Log("Damage");
-    //    }
-    //}
 }

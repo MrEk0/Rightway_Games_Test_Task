@@ -145,6 +145,6 @@ MonoBehaviour:
     type: 3}
   speed: 10
   offset: 0.8
-  strength: 0
+  strength: 20
   timeBetweenFire: 0.1
   damage: 1
