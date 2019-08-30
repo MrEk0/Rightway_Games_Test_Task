@@ -9,6 +9,7 @@ public class Spawn : MonoBehaviour
     [SerializeField] List<GameObject> powerUpToSpawn;
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] float offset = 0.5f;
+    [SerializeField] int maxEnemies = 5;
 
     List<GameObject> prefabsToSpawn = new List<GameObject>();
     float timeSinceLastSpawn = 0f;
@@ -47,7 +48,7 @@ public class Spawn : MonoBehaviour
         {
             prefabsToSpawn = commetsToSpawn;
         }
-        else if (rand < 90 && enemyCount<5)
+        else if (rand < 90 && enemyCount<maxEnemies)
         {
             prefabsToSpawn = enemiesToSpawn;
             enemyCount++;
