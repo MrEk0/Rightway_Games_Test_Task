@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7e0de7ecfbcce4ea7c8f2d1fc3714e, type: 3}
   m_Name: Enemy4
   m_EditorClassIdentifier: 
+  speed: 3
+  timeBetweenShots: 5
   strength: 10
   sprite: {fileID: 21300000, guid: d7107fd7418683c46b26d588ef1c9ecc, type: 3}
   laserPrefab: {fileID: 8247489531675495736, guid: 95b6055eb820e6b40a55e2a07e9ee373,
     type: 3}
   pointsForDestroying: 20
   path: {fileID: 7754928213080145355, guid: 24ee8b3885a20504a8c95b6e9377cb11, type: 3}
+  laserStartPositions: []
