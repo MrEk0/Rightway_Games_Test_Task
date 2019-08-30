@@ -48,7 +48,7 @@ public class Spawn : MonoBehaviour
         {
             prefabsToSpawn = commetsToSpawn;
         }
-        else if (rand < 90 && enemyCount<maxEnemies)
+        else if (rand < 90 && enemyCount < maxEnemies)
         {
             prefabsToSpawn = enemiesToSpawn;
             enemyCount++;
