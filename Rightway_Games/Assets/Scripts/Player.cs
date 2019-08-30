@@ -132,5 +132,15 @@ public class Player : MonoBehaviour, IDamage
     {
         strength -= damage;
         onTakenDamage(damage);
+        if(strength<=0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Time.timeScale = 0;
+        FindObjectOfType<GameManager>().PlayerDeath();
     }
 }

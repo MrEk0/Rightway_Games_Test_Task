@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject PausePrefab;
+    [SerializeField] GameObject DeathPanel;
 
     GameObject canvas;
     GameObject pauseMenu;
@@ -51,5 +52,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
+    }
+
+    public void PlayerDeath()
+    {
+        canvas = GameObject.Find("Canvas");
+        Instantiate(DeathPanel, canvas.transform);
     }
 }

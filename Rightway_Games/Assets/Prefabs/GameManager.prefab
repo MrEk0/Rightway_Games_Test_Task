@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PausePrefab: {fileID: 129299366852066723, guid: c992a810754152849aee370d2dc9302e,
     type: 3}
+  DeathPanel: {fileID: 129299366852066723, guid: d0526356e97b93449b38d9b1f622b912,
+    type: 3}
