@@ -56,5 +56,8 @@ MonoBehaviour:
   powerUpToSpawn:
   - {fileID: 7434498842208736393, guid: 79a46ad87b5e42940a6bfad5c468600f, type: 3}
   - {fileID: 5158905801400956082, guid: 4e299826ff2c1c5448b27a157da3862e, type: 3}
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 1.5
   offset: 0.5
+  maxEnemies: 5
+  chanceOfEnemy: 90
+  chanceOfRock: 60

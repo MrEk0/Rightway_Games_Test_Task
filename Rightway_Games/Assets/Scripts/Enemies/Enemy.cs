@@ -8,11 +8,11 @@ public class Enemy : ScriptableObject
     [SerializeField] float speed;
     [SerializeField] float timeBetweenShots;
     [SerializeField] float strength;
+    [SerializeField] float pointsForDestroying;
     [SerializeField] Sprite sprite;
     [SerializeField] GameObject laserPrefab;
-    [SerializeField] float pointsForDestroying;
     [SerializeField] GameObject path;
-    [SerializeField] List<GameObject> laserStartPositions;
+    //[SerializeField] List<GameObject> laserStartPositions;
 
     public Sprite GetSprite()
     {
@@ -56,8 +56,8 @@ public class Enemy : ScriptableObject
         return wayPoints;
     }
 
-    public List<GameObject> GetLaserPositions()
-    {
-        return laserStartPositions;
-    }
+    //public List<GameObject> GetLaserPositions()
+    //{
+    //    return laserStartPositions;
+    //}
 }

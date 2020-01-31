@@ -7,14 +7,15 @@ public class SpaceRock : MonoBehaviour, IDamage
     [SerializeField] Asteroid asteroidType;
     [SerializeField] float speedDivider;
 
-    Rigidbody2D rd;
     float speed;
     float health;
     float damage;
     float points;
     float rotateSpeed;
+
     Vector3 rotate;
     Vector2 speedVector;
+    Rigidbody2D rd;
     Score score;
 
     private void Awake()

@@ -15,13 +15,15 @@ public class EnemyShip : MonoBehaviour, IDamage
     float damage;
     float points;
     float timeSinceShot=0f;
+
+    int laserCount = 0;
+    int wayPointIndex = 0;
+
     GameObject laserPrefab;
     Transform laserStartPosition;
-    List<Transform> laserPositions = new List<Transform>();
-    int laserCount = 0;
-    List<Transform> wayPoints = new List<Transform>();
-    int wayPointIndex = 0;
     Score score;
+    List<Transform> laserPositions = new List<Transform>();  
+    List<Transform> wayPoints = new List<Transform>(); 
 
     private void Awake()
     {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour, IDamage
 {
@@ -16,15 +17,20 @@ public class Player : MonoBehaviour, IDamage
     float maxX;
     float timeSinceStartFire=0f;
     float fireSpeedTime;
-    Coroutine fireCoroutine;//to stop fire
-    bool isSpeedFire=false;
     float maxStrength;
+    bool isSpeedFire=false; 
+
+    Coroutine fireCoroutine;//to stop fire
+    Rigidbody2D rd;
+    Camera thisCamera;
 
     public event Action<float> onTakenDamage;
 
     private void Awake()
     {
         maxStrength = strength;
+        rd = GetComponent<Rigidbody2D>();
+        thisCamera = Camera.main;
     }
 
     private void Start()
@@ -42,37 +48,57 @@ public class Player : MonoBehaviour, IDamage
 
     private void FireBehaviour()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (/*Input.GetMouseButtonDown(0)*/Input.touchCount>0)
         {
-            Fire();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (fireCoroutine != null)
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+                Fire();
+            else if (touch.phase == TouchPhase.Ended && fireCoroutine!=null)
                 StopCoroutine(fireCoroutine);
         }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    if (fireCoroutine != null)
+        //        StopCoroutine(fireCoroutine);
+        //}
     }
 
     private void SpeedFireBehaviour()
     {
-            timeSinceStartFire += Time.deltaTime;
-            if(timeSinceStartFire>=fireSpeedTime)
-            {
-                isSpeedFire = false;
-                timeSinceStartFire = 0f;
-            }
-            if (Input.GetMouseButtonDown(0))
+        timeSinceStartFire += Time.deltaTime;
+        if (timeSinceStartFire >= fireSpeedTime)
+        {
+            isSpeedFire = false;
+            timeSinceStartFire = 0f;
+        }
+
+        if (/*Input.GetMouseButtonDown(0) ||*/ Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Stationary)
             {
                 fireCoroutine = StartCoroutine(SpeedFire());
             }
+        }
     }
 
     private void Movement()
     {
-        float horizPosition = Input.GetAxis("Horizontal");
-        float posX = transform.position.x + horizPosition * speed * Time.deltaTime;
-        posX = Mathf.Clamp(posX, minX, maxX);
-        transform.position = new Vector2(posX, transform.position.y);
+        if(Input.touchCount>0)
+        {
+            Touch touch = Input.GetTouch(0);
+            Vector3 touchPosition = thisCamera.ScreenToWorldPoint(touch.position);
+            touchPosition.z = 0;
+            Vector3.MoveTowards(transform.position, touchPosition, speed*Time.deltaTime);
+            //rd.velocity = new Vector2(speed*touchPosition.x, 0);
+        }
+        //float horizPosition = Input.GetAxis("Horizontal");
+        //float posX = transform.position.x + horizPosition * speed * Time.deltaTime;
+        //posX = Mathf.Clamp(posX, minX, maxX);
+        //transform.position = new Vector2(posX, transform.position.y);
     }
 
     private void Fire()

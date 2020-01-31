@@ -5,28 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject PausePrefab;
-    [SerializeField] GameObject DeathPanel;
+    [SerializeField] GameObject PausePrefab=null;
+    [SerializeField] GameObject DeathPanel=null;
 
-    GameObject canvas;
     GameObject pauseMenu;
-
-    //private void Awake()
-    //{
-    //    if(SceneManager.GetActiveScene().buildIndex==1)
-    //    canvas = GameObject.Find("Canvas");
-    //}
-
-    //private void Update()
-    //{
-    //    Debug.Log(canvas);
-    //}
+    GameObject canvas;
 
     public void Pause()
     {
-        //show window
-        //if (SceneManager.GetActiveScene().buildIndex == 1)
-            canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("Canvas");
         pauseMenu =Instantiate(PausePrefab, canvas.transform);
         Time.timeScale = 0;
     }
@@ -45,12 +32,12 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level");
         Time.timeScale = 1;
     }
 

@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 3864affa72c6db04181fed7ce909f778
   - enabled: 1
-    path: Assets/Scenes/Pilot_VS_Asteroids.unity
+    path: Assets/Scenes/Level.unity
     guid: 7bd0fe29963d522499ecfed5e9b8463b
   m_configObjects: {}

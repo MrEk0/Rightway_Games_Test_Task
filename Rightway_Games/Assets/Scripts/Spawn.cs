@@ -10,6 +10,8 @@ public class Spawn : MonoBehaviour
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] float offset = 0.5f;
     [SerializeField] int maxEnemies = 5;
+    [SerializeField] float chanceOfEnemy = 30f;
+    [SerializeField] float chanceOfRock = 60f;
 
     List<GameObject> prefabsToSpawn = new List<GameObject>();
     float timeSinceLastSpawn = 0f;
@@ -44,11 +46,11 @@ public class Spawn : MonoBehaviour
     {
         int rand = Random.Range(0, 100);
 
-        if (rand < 60)
+        if (rand < chanceOfRock)
         {
             prefabsToSpawn = commetsToSpawn;
         }
-        else if (rand < 90 && enemyCount < maxEnemies)
+        else if (rand < chanceOfEnemy+chanceOfRock && enemyCount < maxEnemies)
         {
             prefabsToSpawn = enemiesToSpawn;
             enemyCount++;
@@ -63,11 +65,11 @@ public class Spawn : MonoBehaviour
 
         Vector3 startPosition = new Vector3(randomPositionX, transform.position.y, transform.position.z);
 
-        GameObject obj=Instantiate(prefabsToSpawn[randomObjectIndex], startPosition, transform.rotation);
+        GameObject prefab = Instantiate(prefabsToSpawn[randomObjectIndex], startPosition, transform.rotation, transform);
 
         if(prefabsToSpawn==enemiesToSpawn)
         {
-            obj.GetComponent<EnemyShip>().onDead += UpdateEnemyCount;
+            prefab.GetComponent<EnemyShip>().onDead += UpdateEnemyCount;
         }
     }
 

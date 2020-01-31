@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 2
   sprite: {fileID: 21300000, guid: b72498f8ab8e86848ae65e051ae570df, type: 3}
-  speed: 5
+  speed: 9
   size: 2
   points: 8
   rotateSpeed: 6
